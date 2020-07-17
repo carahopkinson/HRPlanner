@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+bqSGVJAZCIdJjrQjhLYraPVDMUvpj4wE+xukE5XlIiOQzyzqDFkx7wKyoGyDK8DRRDRcQmlipNlZkMw9U+1uQ==",
+  "dgSpecHash": "Yyf9EpPpT5fvUCtvpi1BY4NTugleK1B7gFclAZuM7p1w5vrQfT77/dM89ZmJNou6utBMRB1el0lTUd1kP/qPyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
+  "projectFilePath": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chopkinson\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\chopkinson\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

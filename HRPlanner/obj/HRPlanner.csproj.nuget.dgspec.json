@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\HRPlanner.csproj": {}
+    "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\HRPlanner.csproj": {
+    "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
         "projectName": "HRPlanner",
-        "projectPath": "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
+        "projectPath": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
         "packagesPath": "C:\\Users\\chopkinson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chopkinson\\Documents\\Cara\\HRPlanner\\HRPlanner\\HRPlanner\\obj\\",
+        "outputPath": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
