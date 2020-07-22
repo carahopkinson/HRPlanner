@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HRPlanner.Data.Queries
+namespace HRPlanner.Data.Commands
 {
-    public class GetUserByIdQuery : IGetUserByIdQuery
+    public class UpdateUserCommand : IUpdateUserCommand
     {
         private readonly IDataContextFactory dataContextFactory;
-        public GetUserByIdQuery(IDataContextFactory dataContextFactory)
+        public UpdateUserCommand(IDataContextFactory dataContextFactory)
         {
             this.dataContextFactory = dataContextFactory;
         }
 
-        public Users Execute(int userId)
+        public bool Execute(Users user)
         {
             var context = dataContextFactory.CreateContext();
-            return context.Users
-                .FirstOrDefault(x => x.UserId == userId);
+            context.Users.Update(user);
+            context.SaveChanges(true);
+            return true;
         }
     }
 }

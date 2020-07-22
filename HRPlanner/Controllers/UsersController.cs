@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HRPlanner.Business;
-using HRPlanner.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRPlanner.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IGetUsers getUsers;
-        public UsersController(IGetUsers getUsers)
+        private readonly IUserService userService;
+        public UsersController(IUserService userService)
         {
-            this.getUsers = getUsers;
+            this.userService = userService;
         }
         public IActionResult Index()
         {
-            var users = getUsers.Get();
+            var users = userService.Get();
             return View(users);
         }
 
-        public IActionResult Edit(int Id)
+        public IActionResult Edit(int id)
         {
-            UserModel model = new UserModel();
-            return View(model);
+            var user = userService.GetById(id);
+
+            return View(user);
         }
 
     }

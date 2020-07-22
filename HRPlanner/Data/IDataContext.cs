@@ -6,6 +6,7 @@ namespace HRPlanner.Data
     public interface IDataContext
     {
         DbSet<Users> Users { get; set; }
+        int SaveChanges(bool acceptAllChangesOnSuccess);
     }
 
 }

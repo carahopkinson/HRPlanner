@@ -8142,23 +8142,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chopkinson\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\sophi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
+      "projectUniqueName": "C:\\Users\\sophi\\Documents\\GitHub\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
       "projectName": "HRPlanner",
-      "projectPath": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
-      "packagesPath": "C:\\Users\\chopkinson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chopkinson\\source\\repos\\HRPlanner\\HRPlanner\\obj\\",
+      "projectPath": "C:\\Users\\sophi\\Documents\\GitHub\\HRPlanner\\HRPlanner\\HRPlanner.csproj",
+      "packagesPath": "C:\\Users\\sophi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sophi\\Documents\\GitHub\\HRPlanner\\HRPlanner\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\chopkinson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sophi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8221,7 +8217,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

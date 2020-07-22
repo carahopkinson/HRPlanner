@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\Services\" />
-    <Folder Include="Data\Commands\" />
     <Folder Include="wwwroot\css\fontawesome\" />
   </ItemGroup>
 
