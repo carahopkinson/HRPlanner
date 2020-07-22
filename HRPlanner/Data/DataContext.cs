@@ -16,5 +16,10 @@ namespace HRPlanner.Data
         }
 
         public DbSet<Users> Users { get; set; }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
     }
 }

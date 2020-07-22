@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace HRPlanner.Business.Factories
 {
-    public class UserFactory
+    public class UserFactory : IUserFactory
     {
         public UserViewModel ToViewModel(Users user)
         {
-            UserViewModel userViewModel = new UserViewModel() 
+            return new UserViewModel() 
             {
                 UserId = user.UserId,
                 FirstName = user.FirstName,
@@ -21,8 +21,25 @@ namespace HRPlanner.Business.Factories
                 Admin = user.Admin,
                 Holidays = user.Holidays
             };
+        }
 
-            return (userViewModel);
+        public Users ToModel(UserViewModel userViewModel)
+        {
+            return new Users()
+            {
+                UserId = userViewModel.UserId,
+                FirstName = userViewModel.FirstName,
+                LastName = userViewModel.LastName,
+                UserName = userViewModel.UserName,
+                Active = userViewModel.Active,
+                Admin = userViewModel.Admin,
+                Holidays = userViewModel.Holidays
+            };
+        }
+
+        public List<UserViewModel> ToViewModelList(List<Users> users)
+        {
+            return users.Select(x => ToViewModel(x)).ToList();
         }
     }
 }
