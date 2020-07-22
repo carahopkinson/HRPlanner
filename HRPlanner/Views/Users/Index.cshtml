@@ -3,8 +3,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Users</h1>
+<div class="row">
+    <div class="col-4">
+        Name
+    </div>
+    <div class="col-1">
+        Edit
+    </div>
+    <div class="col-1">
+        Remove
+    </div>
+</div>
 @foreach (var user in Model)
 {
-<p>@user.FirstName @user.LastName</p>
+<div class="row">
+    <div class="col-4">
+        <p>@user.FirstName @user.LastName</p>
+    </div>
+    <div class="col-1">
+        <a href="/Users/Edit/@user.UserId"><i class="fa fa-sm fa-user-edit"></i></a>
+    </div>
+    <div class="col-1">
+        <a href="#"><i class="fa fa-sm fa-user-times"></i></a>
+    </div>
+</div>
+
 }
