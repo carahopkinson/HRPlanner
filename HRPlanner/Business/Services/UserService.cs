@@ -18,17 +18,23 @@ namespace HRPlanner.Business
         private readonly IUserFactory userFactory;
         private readonly IUpdateUserCommand updateUserCommand;
         private readonly IGetUserByIdQuery getUserByIdQuery;
+        private readonly ISetActiveStatusQuery setActiveStatusQuery;
+        private readonly ISetActiveStatusUserCommand setActiveStatusUserCommand;
 
         public UserService(
             IGetUsersQuery getUsersQuery,
             IUserFactory userFactory,
             IUpdateUserCommand updateUserCommand,
-            IGetUserByIdQuery getUserByIdQuery)
+            IGetUserByIdQuery getUserByIdQuery,
+            ISetActiveStatusQuery setActiveStatusQuery,
+            ISetActiveStatusUserCommand setActiveStatusUserCommand)
         {
             this.getUsersQuery = getUsersQuery;
             this.userFactory = userFactory;
             this.updateUserCommand = updateUserCommand;
             this.getUserByIdQuery = getUserByIdQuery;
+            this.setActiveStatusUserCommand = setActiveStatusUserCommand;
+            this.setActiveStatusQuery = setActiveStatusQuery;
         }
 
         public List<UserViewModel> Get()
@@ -57,6 +63,12 @@ namespace HRPlanner.Business
         {
             var user = userFactory.ToModel(userViewModel);
             updateUserCommand.Execute(user);
+            return true;
+        }
+
+        public bool SetActiveStatus(int userId, bool active)
+        {
+            setActiveStatusUserCommand.Execute(userId, active);
             return true;
         }
     }

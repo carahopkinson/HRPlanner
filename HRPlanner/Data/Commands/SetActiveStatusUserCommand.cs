@@ -7,26 +7,22 @@ using System.Threading.Tasks;
 
 namespace HRPlanner.Data.Commands
 {
-    public class UpdateUserCommand : IUpdateUserCommand
+    public class SetActiveStatusUserCommand : ISetActiveStatusUserCommand
     {
         private readonly IDataContextFactory dataContextFactory;
         private readonly IGetUserByIdQuery getUsersByIdQuery;
-        public UpdateUserCommand(IDataContextFactory dataContextFactory, IGetUserByIdQuery getUsersByIdQuery)
+        public SetActiveStatusUserCommand(IDataContextFactory dataContextFactory, IGetUserByIdQuery getUsersByIdQuery)
         {
             this.dataContextFactory = dataContextFactory;
             this.getUsersByIdQuery = getUsersByIdQuery;
         }
 
-        public bool Execute(Users user)
+        public bool Execute(int userId, bool active)
         {
             var context = dataContextFactory.CreateContext();
-            var userEntity = getUsersByIdQuery.Execute(user.UserId);
+            var userEntity = getUsersByIdQuery.Execute(userId);
 
-            userEntity.FirstName = user.FirstName;
-            userEntity.LastName = user.LastName;
-            userEntity.UserName = user.UserName;
-            userEntity.Admin = user.Admin;
-            userEntity.Holidays = user.Holidays;
+            userEntity.Active = active;
 
             context.Users.Update(userEntity);
             context.SaveChanges(true);

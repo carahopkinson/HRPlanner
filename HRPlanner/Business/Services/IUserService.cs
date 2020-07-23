@@ -7,5 +7,7 @@ namespace HRPlanner.Business
     {
         List<UserViewModel> Get();
         UserViewModel GetById(int id);
+        bool Edit(UserViewModel model);
+        bool SetActiveStatus(int userId, bool active);
     }
 }

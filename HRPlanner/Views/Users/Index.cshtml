@@ -3,30 +3,55 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Users</h1>
 <div class="row">
-    <div class="col-4">
+    <div class="col-md-2">
+        <h1>Users</h1>
+    </div>
+    <div class="col-md-1 pt-3">
+        <a href="#"><i class="fa fa-user-plus"></i></a>
+    </div>
+</div>
+<div class="row font-weight-bold">
+    <div class="col-3">
         Name
     </div>
     <div class="col-1">
         Edit
     </div>
     <div class="col-1">
-        Remove
+        Active
     </div>
 </div>
 @foreach (var user in Model)
 {
-<div class="row">
-    <div class="col-4">
-        <p>@user.FirstName @user.LastName</p>
+    <div class="row">
+        <div class="col-3">
+            <p>@user.FirstName @user.LastName</p>
+        </div>
+        <div class="col-1">
+            <a href="/Users/Edit/@user.UserId"><i class="fa fa-sm fa-user-edit"></i></a>
+        </div>
+        <div class="col-1">
+            <input type="checkbox" onclick="setActiveStatus(@user.UserId, true)" asp-for="@user.Active" />
+        </div>
     </div>
-    <div class="col-1">
-        <a href="/Users/Edit/@user.UserId"><i class="fa fa-sm fa-user-edit"></i></a>
-    </div>
-    <div class="col-1">
-        <a href="#"><i class="fa fa-sm fa-user-times"></i></a>
-    </div>
-</div>
 
 }
+
+<script>
+    function setActiveStatus(userId, active) {
+        $.ajax({
+            //type: "POST",
+            url: 'api/users/setactivestatus',
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            //data: JSON.stringify({ userId: userId, active: true }),
+            error: function () {
+
+            },
+            success: function (result) {
+
+            }
+        });
+    }
+</script>
