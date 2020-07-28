@@ -434,3 +434,4 @@ C:\Users\chopkinson\source\repos\HRPlanner\HRPlanner\bin\Debug\netcoreapp3.1\run
 C:\Users\chopkinson\source\repos\HRPlanner\HRPlanner\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\chopkinson\source\repos\HRPlanner\HRPlanner\obj\Debug\netcoreapp3.1\HRPlanner.csproj.CoreCompileInputs.cache
 C:\Users\chopkinson\source\repos\HRPlanner\HRPlanner\obj\Debug\netcoreapp3.1\HRPlanner.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\chopkinson\source\repos\HRPlanner\HRPlanner\obj\Debug\netcoreapp3.1\Razor\Views\Users\Create.cshtml.g.cs

@@ -4,54 +4,70 @@
 }
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-2">
         <h1>Users</h1>
     </div>
-    <div class="col-md-1 pt-3">
-        <a href="#"><i class="fa fa-user-plus"></i></a>
+    <div class="col-1 pt-3">
+        <a href="/Users/Create"><i class="fa fa-user-plus"></i></a>
+    </div>
+    <div class="col-2 pt-3">
+        <label><input type="checkbox" onclick="showInactiveUsers(checked)" /> Show Inactive users</label>
     </div>
 </div>
-<div class="row font-weight-bold">
-    <div class="col-3">
-        Name
-    </div>
-    <div class="col-1">
-        Edit
-    </div>
-    <div class="col-1">
-        Active
-    </div>
-</div>
-@foreach (var user in Model)
-{
-    <div class="row">
-        <div class="col-3">
-            <p>@user.FirstName @user.LastName</p>
-        </div>
-        <div class="col-1">
-            <a href="/Users/Edit/@user.UserId"><i class="fa fa-sm fa-user-edit"></i></a>
-        </div>
-        <div class="col-1">
-            <input type="checkbox" onclick="setActiveStatus(@user.UserId, true)" asp-for="@user.Active" />
-        </div>
-    </div>
 
-}
+<table class="table table-bordered table-sm">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col" class="text-center">Edit</th>
+            <th scope="col" class="text-center">Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td><p>@user.FirstName @user.LastName</p></td>
+
+                <td class="text-center"><a href="/Users/Edit/@user.UserId"><i class="fa fa-sm fa-user-edit"></i></a></td>
+
+                <td class="text-center"><input type="checkbox" onclick="setActiveStatus(@user.UserId, checked)" asp-for="@user.Active" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <script>
     function setActiveStatus(userId, active) {
         $.ajax({
-            //type: "POST",
+            type: "POST",
             url: 'api/users/setactivestatus',
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
-            //data: JSON.stringify({ userId: userId, active: true }),
+            data: JSON.stringify({ "userId": userId, "active": active }),
             error: function () {
 
             },
-            success: function (result) {
+            success: function () {
 
             }
         });
+    }
+    function showInactiveUsers(show) {
+        $.ajax({
+            type: "GET",
+            url: 'users/index',
+            //url: 'users/index?showInactiveUsers' + show,
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ "show": show }),
+            error: function () {
+
+            },
+            success: function () {
+
+            }
+        });
+
     }
 </script>

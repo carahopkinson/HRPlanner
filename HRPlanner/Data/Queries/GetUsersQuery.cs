@@ -15,11 +15,20 @@ namespace HRPlanner.Data.Queries
             this.dataContextFactory = dataContextFactory;
         }
 
-        public List<Users> Execute()
+        public List<Users> Execute(bool show)
         {
             var context = dataContextFactory.CreateContext();
-            return context.Users
-                .ToList();
+            if (show)
+            {
+                return context.Users
+                      .ToList();
+            }
+            else
+            {
+                return context.Users
+                   .Where(x => x.Active == true)
+                   .ToList();
+            }
         }
     }
 }

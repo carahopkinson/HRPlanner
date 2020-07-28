@@ -15,11 +15,15 @@ namespace HRPlanner.Controllers.Api
     public class UsersController : ControllerBase
     {
         private readonly IUserService userService;
+        public UsersController(IUserService userService) 
+        {
+            this.userService = userService;
+        }
 
         [HttpPost, Route("setactivestatus")]
-        public bool SetActiveStatus([FromBody]int userId, bool active)
+        public bool SetActiveStatus([FromBody] EditUserViewModel model)
         {
-            userService.SetActiveStatus(userId, active);
+            userService.SetActiveStatus(model.UserId, model.Active);
             return true;
         }
     }

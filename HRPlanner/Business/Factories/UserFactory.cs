@@ -33,7 +33,8 @@ namespace HRPlanner.Business.Factories
                 UserName = userViewModel.UserName,
                 Active = userViewModel.Active,
                 Admin = userViewModel.Admin,
-                Holidays = userViewModel.Holidays
+                Holidays = userViewModel.Holidays,
+                Password = userViewModel.Password
             };
         }
 

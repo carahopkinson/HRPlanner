@@ -15,9 +15,9 @@ namespace HRPlanner.Controllers
         {
             this.userService = userService;
         }
-        public IActionResult Index()
+        public IActionResult Index(bool show)
         {
-            var users = userService.Get();
+            var users = userService.Get(show);
             return View(users);
         }
 
@@ -40,6 +40,17 @@ namespace HRPlanner.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        public IActionResult Create(UserViewModel model)
+        {
+            userService.Create(model);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
        
     }
 }

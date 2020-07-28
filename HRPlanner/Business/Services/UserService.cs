@@ -5,6 +5,7 @@ using HRPlanner.Data.Queries;
 using HRPlanner.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,28 +19,28 @@ namespace HRPlanner.Business
         private readonly IUserFactory userFactory;
         private readonly IUpdateUserCommand updateUserCommand;
         private readonly IGetUserByIdQuery getUserByIdQuery;
-        private readonly ISetActiveStatusQuery setActiveStatusQuery;
         private readonly ISetActiveStatusUserCommand setActiveStatusUserCommand;
+        private readonly ICreateUserCommand createUserCommand;
 
         public UserService(
             IGetUsersQuery getUsersQuery,
             IUserFactory userFactory,
             IUpdateUserCommand updateUserCommand,
             IGetUserByIdQuery getUserByIdQuery,
-            ISetActiveStatusQuery setActiveStatusQuery,
-            ISetActiveStatusUserCommand setActiveStatusUserCommand)
+            ISetActiveStatusUserCommand setActiveStatusUserCommand,
+            ICreateUserCommand createUserCommand)
         {
             this.getUsersQuery = getUsersQuery;
             this.userFactory = userFactory;
             this.updateUserCommand = updateUserCommand;
             this.getUserByIdQuery = getUserByIdQuery;
             this.setActiveStatusUserCommand = setActiveStatusUserCommand;
-            this.setActiveStatusQuery = setActiveStatusQuery;
+            this.createUserCommand = createUserCommand;
         }
 
-        public List<UserViewModel> Get()
+        public List<UserViewModel> Get(bool show)
         {
-            var users = getUsersQuery.Execute();
+            var users = getUsersQuery.Execute(show);
             if (users != null && users.Any())
             {
                 return userFactory.ToViewModelList(users);
@@ -62,13 +63,26 @@ namespace HRPlanner.Business
         public bool Edit(UserViewModel userViewModel)
         {
             var user = userFactory.ToModel(userViewModel);
-            updateUserCommand.Execute(user);
+            if (user != null)
+            {
+                updateUserCommand.Execute(user);
+            }
             return true;
         }
 
         public bool SetActiveStatus(int userId, bool active)
         {
             setActiveStatusUserCommand.Execute(userId, active);
+            return true;
+        }
+
+        public bool Create(UserViewModel userViewModel)
+        {
+            var user = userFactory.ToModel(userViewModel);
+            if (user != null)
+            {
+                createUserCommand.Execute(user);
+            }
             return true;
         }
     }

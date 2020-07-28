@@ -5,6 +5,6 @@ namespace HRPlanner.Data.Queries
 {
     public interface IGetUsersQuery
     {
-        List<Users> Execute();
+        List<Users> Execute(bool show);
     }
 }
